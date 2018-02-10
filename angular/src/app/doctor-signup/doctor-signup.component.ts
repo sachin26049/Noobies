@@ -36,10 +36,6 @@ export class DoctorSignupComponent implements OnInit {
   ngOnInit() {
   }
 
-  changeValue(s:String)
-  {
-  this.specialist=s;
-  }
 
     onSignupSubmit() {
     console.log('1');
@@ -47,6 +43,7 @@ export class DoctorSignupComponent implements OnInit {
       name: this.name,
       age:this.age,
       sex:this.sex,
+      specialist:this.specialist,
       degree: this.degree,
       clinic: this.clinic,
       address: this.address,

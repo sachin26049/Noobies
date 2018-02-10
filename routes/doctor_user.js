@@ -11,6 +11,7 @@ router.post('/register', (req, res, next) => {
     name: req.body.name,
     age:req.body.age,
     sex:req.body.sex,
+    specialist:req.body.specialist,
     degree: req.body.degree,
     clinic: req.body.clinic,
     address: req.body.address,

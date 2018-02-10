@@ -13,7 +13,7 @@ const UserSchema = mongoose.Schema({
   sex: {
     type: String
   },
-  Specialist: {
+  specialist: {
     type: String
   },
   degree: {

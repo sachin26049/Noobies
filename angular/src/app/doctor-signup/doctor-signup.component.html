@@ -19,7 +19,7 @@
   </div>
   <div class="form-group">
     <label>Specialist</label>
-    <select class="form-group"  (change)="changeValue($event.target.value)" style="width:20%;height:40px">
+    <select class="form-group"  [(ngModel)]="specialist" name="specialist" style="width:20%;height:40px">
       <option value="Cardiologists" selected>Cardiologists</option>
       <option value="Endocrinologists">Endocrinologists </option>
       <option value="Gastroenterologists">Gastroenterologists </option>
