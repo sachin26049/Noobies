@@ -13,12 +13,30 @@ const UserSchema = mongoose.Schema({
   sex: {
     type: String
   },
-  health: {
+  Specialist: {
     type: String
   },
-  city: {
+  degree: {
     type: String
-  },  
+  },
+  clinic: {
+    type: String
+  },
+  address: {
+    type: String
+  },
+  time_to: {
+    type: String
+  }, 
+  time_from: {
+    type: String
+  }, 
+  time_to_a: {
+    type: String
+  }, 
+  time_from_p: {
+    type: String
+  }, 
   email: {
     type: String,
     required: true
@@ -33,7 +51,7 @@ const UserSchema = mongoose.Schema({
   }
 });
 
-const User = module.exports = mongoose.model('user', UserSchema);
+const User = module.exports = mongoose.model('doctors', UserSchema);
 
 module.exports.getUserById = function(id, callback){
   User.findById(id, callback);
@@ -44,7 +62,7 @@ module.exports.getUserByUsername = function(username, callback){
   User.findOne(query, callback);
 }
 
-module.exports.addUser = function(newUser, callback){
+module.exports.addDoctor = function(newUser, callback){
   bcrypt.genSalt(10, (err, salt) => {
     bcrypt.hash(newUser.password, salt, (err, hash) => {
       if(err) throw err;

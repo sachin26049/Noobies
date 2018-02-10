@@ -24,6 +24,7 @@ const app = express();
 const hospitals = require('./routes/hospitals');
 const doctor=require('./routes/doctor');
 const users=require('./routes/users')
+const doctor_users=require('./routes/doctor_user')
 // Port Number
 const port = 3000;
 
@@ -45,6 +46,7 @@ app.use(passport.session());
 app.use('/hospital', hospitals);
 app.use('/doctors',doctor);
 app.use('/users',users);
+app.use('/doctor_user',doctor_users);
 
 app.get('/', (req, res) => {
     res.send('Invalid Endpoint');

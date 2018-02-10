@@ -18,11 +18,24 @@ authToken: any;
   });
   }
 
+  registerDoctor(user) {
+    return this.http.post ('http://localhost:3000/doctor_user/register', user, {
+    headers: new HttpHeaders().set('content-type', 'application/json'),
+  });
+  }
+
    authenticateUser(user) {
     return this.http.post ('http://localhost:3000/users/authenticate', user, {
     headers: new HttpHeaders().set('content-type', 'application/json'),
   });
   }
+
+  authenticateDoctor(user) {
+    return this.http.post ('http://localhost:3000/doctor_user/authenticate', user, {
+    headers: new HttpHeaders().set('content-type', 'application/json'),
+  });
+  }
+
 loggedIn() {
     // console.log('loggedIn');
     return tokenNotExpired('id_token');

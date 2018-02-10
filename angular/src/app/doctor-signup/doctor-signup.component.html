@@ -1,0 +1,62 @@
+<h2 class="page-header">Register</h2>
+<form (ngSubmit)="onSignupSubmit()">
+  <div class="form-group">
+    <label>Name</label>
+    <input type="text" [(ngModel)]="name" name="name" class="form-control">
+  </div>
+  <div class="form-group">
+    <label>Age</label>
+    <input type="number" [(ngModel)]="age" name="age" class="form-control">
+  </div>
+  <div class="form-group">
+    <label>Sex</label><br>
+    <input type="radio" [(ngModel)]="sex" name="sex" value="Male" style="margin-left:30px;">Male
+    <input type="radio" [(ngModel)]="sex" name="sex" value="Female" style="margin-left:30px;">Female<br>
+  </div>
+  <div class="form-group">
+    <label>Highest Degree</label>
+    <input type="text" [(ngModel)]="degree" name="degree" class="form-control" >
+  </div>
+  <div class="form-group">
+    <label>Specialist</label>
+    <select class="form-group"  (change)="changeValue($event.target.value)" style="width:20%;height:40px">
+      <option value="Cardiologists" selected>Cardiologists</option>
+      <option value="Endocrinologists">Endocrinologists </option>
+      <option value="Gastroenterologists">Gastroenterologists </option>
+      <option value="Neurologists">Neurologists </option>
+    </select>
+  </div>
+  <div class="form-group">
+    <label>Clinic name</label>
+    <input type="text" [(ngModel)]="clinic" name="clinic" class="form-control" >
+  </div>
+  <div class="form-group">
+    <label>Clinic address</label>
+    <input type="text" [(ngModel)]="address" name="address" class="form-control">
+  </div>
+  <div class="form-group">
+    <label>Available from:</label>
+    <input type="time" [(ngModel)]="time_from" name="time_from" class="form-control" >
+    <input type="radio" [(ngModel)]="time_from_p" name="time_from_p" value="am" style="margin-left:30px;">am
+    <input type="radio" [(ngModel)]="time_from_p" name="time_from_p" value="pm" style="margin-left:30px;">pm<br>
+  </div>
+  <div class="form-group">
+    <label>Available to:</label>
+    <input type="time" [(ngModel)]="time_to" name="time_to" class="form-control" >
+    <input type="radio" [(ngModel)]="time_to_a" name="time_from_a" value="am" style="margin-left:30px;">am
+    <input type="radio" [(ngModel)]="time_to_a" name="time_from_a" value="pm" style="margin-left:30px;">pm<br>
+  </div>
+  <div class="form-group">
+    <label>UserName</label>
+    <input type="text" [(ngModel)]="username" name="username" class="form-control">
+  </div>
+  <div class="form-group">
+    <label>Email</label>
+    <input type="text" [(ngModel)]="email" name="email" class="form-control" >
+  </div>
+  <div class="form-group">
+    <label>Password</label>
+    <input type="password" [(ngModel)]="password" name="password" class="form-control">
+  </div>
+  <input type="submit" class="btn btn-primary" value="Submit">
+</form>

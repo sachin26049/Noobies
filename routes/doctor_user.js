@@ -3,7 +3,7 @@ const router = express.Router();
 const passport = require('passport');
 const jwt = require('jsonwebtoken');
 const config = require('../config/database');
-const User = require('../models/user');
+const User = require('../models/doctor_user');
 
 // Register
 router.post('/register', (req, res, next) => {
@@ -11,14 +11,19 @@ router.post('/register', (req, res, next) => {
     name: req.body.name,
     age:req.body.age,
     sex:req.body.sex,
-    health:req.body.health,
-    city:req.body.city,
+    degree: req.body.degree,
+    clinic: req.body.clinic,
+    address: req.body.address,
+    time_to: req.body.time_to,
+    time_from: req.body.time_from,
+    time_to_a: req.body.time_to_a,
+    time_from_p: req.body.time_from_p,
     email: req.body.email,
     username: req.body.username,
     password: req.body.password
   });
-
-  User.addUser(newUser, (err, user) => {
+  console.log('heheddd');
+  User.addDoctor(newUser, (err, user) => {
     if(err){
       res.json({success: false, msg:'Failed to register user'});
     } else {

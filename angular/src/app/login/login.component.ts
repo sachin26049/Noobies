@@ -11,6 +11,7 @@ import {FlashMessagesService} from 'angular2-flash-messages';
 export class LoginComponent implements OnInit {
   username: String;
   password: String;
+  cust:String;
 
   constructor(
     private authService: AuthService,
@@ -24,16 +25,18 @@ export class LoginComponent implements OnInit {
   onLoginSubmit() {
     const user = {
       username: this.username,
-      password: this.password
+      password: this.password,
+      cust:this.cust
     };
 
+    if(this.cust=="patient"){
     this.authService.authenticateUser(user).subscribe(data => {
       if (data['success']) {
         this.authService.storeUserData(data['token'], data['user']);
         this.flashMessage.show('You are now logged in', {
           cssClass: 'alert-success',
           timeout: 5000});
-          this.router.navigate(['menu']);
+          this.router.navigate(['login']);
       } else {
         this.flashMessage.show(data['msg'], {
           cssClass: 'alert-danger',
@@ -41,6 +44,23 @@ export class LoginComponent implements OnInit {
         this.router.navigate(['login']);
       }
     });
+  }
+  else{
+    this.authService.authenticateDoctor(user).subscribe(data => {
+      if (data['success']) {
+        this.authService.storeUserData(data['token'], data['user']);
+        this.flashMessage.show('You are now logged in', {
+          cssClass: 'alert-success',
+          timeout: 5000});
+          this.router.navigate(['home']);
+      } else {
+        this.flashMessage.show(data['msg'], {
+          cssClass: 'alert-danger',
+          timeout: 5000});
+        this.router.navigate(['login']);
+      }
+    });
+  }
   }
 
 }

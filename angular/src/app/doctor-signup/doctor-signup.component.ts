@@ -5,17 +5,23 @@ import {FlashMessagesService} from 'angular2-flash-messages';
 import {Router} from '@angular/router';
 
 @Component({
-  selector: 'app-signup',
-  templateUrl: './signup.component.html',
-  styleUrls: ['./signup.component.css']
+  selector: 'app-doctor-signup',
+  templateUrl: './doctor-signup.component.html',
+  styleUrls: ['./doctor-signup.component.css']
 })
-export class SignupComponent implements OnInit {
+export class DoctorSignupComponent implements OnInit {
 
   name: String;
   age: number;
   sex: String;
-  health: String;
-  city: String;
+  degree: String;
+  specialist: String;
+  clinic: String;
+  address: String;
+  time_to: any;
+  time_from: any;
+  time_to_a: String;
+  time_from_p: String;
   username: String;
   email: String;
   password: String;
@@ -30,19 +36,29 @@ export class SignupComponent implements OnInit {
   ngOnInit() {
   }
 
+  changeValue(s:String)
+  {
+  this.specialist=s;
+  }
+
     onSignupSubmit() {
     console.log('1');
     const user = {
       name: this.name,
       age:this.age,
       sex:this.sex,
-      health:this.health,
-      city:this.city,
+      degree: this.degree,
+      clinic: this.clinic,
+      address: this.address,
+      time_to: this.time_to,
+      time_from: this.time_from,
+      time_to_a: this.time_to_a,
+      time_from_p: this.time_from_p,
       email: this.email,
       username: this.username,
       password: this.password
      };
-  console.log(user);
+  console.log(JSON.stringify(user));
     // Required Fields
     if ( !this.validateService.validateRegister(user)) {
       this.flashMessage.show('Please fill in all fields', {cssClass: 'alert-danger', timeout: 3000});
@@ -56,7 +72,7 @@ export class SignupComponent implements OnInit {
     }
 console.log('trying');
     // Register user
-    this.authService.registerUser(user).subscribe(data => {
+    this.authService.registerDoctor(user).subscribe(data => {
       if (data['success']) {
         this.flashMessage.show('You are now registered and can log in', {cssClass: 'alert-success', timeout: 3000});
         this.router.navigate(['/login']);
@@ -69,4 +85,3 @@ console.log('trying');
   }
 
 }
-

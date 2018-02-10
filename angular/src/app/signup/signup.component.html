@@ -5,17 +5,21 @@
     <input type="text" [(ngModel)]="name" name="name" class="form-control">
   </div>
   <div class="form-group">
+    <label>Age</label>
+    <input type="number" [(ngModel)]="age" name="age" class="form-control">
+  </div>
+  <div class="form-group">
     <label>Sex</label><br>
     <input type="radio" [(ngModel)]="sex" name="sex" value="Male" style="margin-left:30px;">Male
     <input type="radio" [(ngModel)]="sex" name="sex" value="Female" style="margin-left:30px;">Female<br>
   </div>
   <div class="form-group">
     <label>Health condition</label>
-    <textarea [(ngModel)]="health" name="health" class="form-control">Enter the description here....</textarea>
+    <textarea [(ngModel)]="health" name="health" class="form-control" ></textarea>
   </div>
   <div class="form-group">
-    <label>Location</label>
-    <input type="text" [(ngModel)]="location" name="location" class="form-control">
+    <label>City</label>
+    <input type="text" [(ngModel)]="city" name="city" class="form-control">
   </div>
   <div class="form-group">
     <label>UserName</label>
