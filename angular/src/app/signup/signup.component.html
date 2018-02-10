@@ -1,0 +1,33 @@
+<h2 class="page-header">Register</h2>
+<form (ngSubmit)="onSignupSubmit()">
+  <div class="form-group">
+    <label>Name</label>
+    <input type="text" [(ngModel)]="name" name="name" class="form-control">
+  </div>
+  <div class="form-group">
+    <label>Sex</label><br>
+    <input type="radio" [(ngModel)]="sex" name="sex" value="Male" style="margin-left:30px;">Male
+    <input type="radio" [(ngModel)]="sex" name="sex" value="Female" style="margin-left:30px;">Female<br>
+  </div>
+  <div class="form-group">
+    <label>Health condition</label>
+    <textarea [(ngModel)]="health" name="health" class="form-control">Enter the description here....</textarea>
+  </div>
+  <div class="form-group">
+    <label>Location</label>
+    <input type="text" [(ngModel)]="location" name="location" class="form-control">
+  </div>
+  <div class="form-group">
+    <label>UserName</label>
+    <input type="text" [(ngModel)]="username" name="username" class="form-control">
+  </div>
+  <div class="form-group">
+    <label>Email</label>
+    <input type="text" [(ngModel)]="email" name="email" class="form-control" >
+  </div>
+  <div class="form-group">
+    <label>Password</label>
+    <input type="password" [(ngModel)]="password" name="password" class="form-control">
+  </div>
+  <input type="submit" class="btn btn-primary" value="Submit">
+</form>

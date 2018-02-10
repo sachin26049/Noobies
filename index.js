@@ -4,13 +4,13 @@ const bodyParser = require('body-parser');
 const cors = require('cors');
 const passport = require('passport');
 const mongoose = require('mongoose');
-//const config = require('./config/database');
+const config = require('./config/database');
 var https = require('https');
 //var io = require('socket.io')(http);
 // Connect To Database
-//mongoose.connect(config.database);
+mongoose.connect(config.database);
 
-/* On Connection
+// On Connection
 mongoose.connection.on('connected', () => {
   console.log('Connected to database '+config.database);
 });
@@ -19,11 +19,11 @@ mongoose.connection.on('connected', () => {
 mongoose.connection.on('error', (err) => {
   console.log('Database error: '+err);
 });
-*/
 const app = express();
 
 const hospitals = require('./routes/hospitals');
 const doctor=require('./routes/doctor');
+const users=require('./routes/users')
 // Port Number
 const port = 3000;
 
@@ -44,6 +44,8 @@ app.use(passport.session());
 
 app.use('/hospital', hospitals);
 app.use('/doctors',doctor);
+app.use('/users',users);
+
 app.get('/', (req, res) => {
     res.send('Invalid Endpoint');
   });
